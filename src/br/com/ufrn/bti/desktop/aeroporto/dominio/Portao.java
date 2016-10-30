@@ -19,6 +19,10 @@ public class Portao {
 		this.aviao = new Aviao();
 	}
 	
+	public Portao(){
+		this.numeroPortao = -1;
+	}
+	
 	public int getNumeroPortao() {
 		return numeroPortao;
 	}

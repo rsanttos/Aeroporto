@@ -7,7 +7,7 @@ import br.com.ufrn.bti.desktop.aeroporto.thread.ThreadAviao;
 public class Main {
 
 	public static void main(String[] args) throws InterruptedException {
-		Aeroporto aeroporto = new Aeroporto("Aero1", 5);
+		Aeroporto aeroporto = new Aeroporto("Aero1", 3, 10);
 		
 		for(int i = 0 ; i < 50 ; i++){
 			double l = Math.random() * 3;

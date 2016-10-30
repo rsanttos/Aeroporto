@@ -10,6 +10,14 @@ public class Aviao {
 	 * Problema mecânico *
 	 */
 	private int situacao;
+	
+	/*
+	 * Status do avião. 
+	 * Caso 0: Está no ar
+	 * Caso 1: Está no estacionamento
+	 * Caso 2: Está em um portão para embarque ou desembarque
+	 * */
+	private int status;
 
 	private String situacaoTexto;
 
@@ -24,6 +32,7 @@ public class Aviao {
 		this.aeroporto = aeroporto;
 		this.id = id;
 		this.situacao = situacao;
+		this.status = 0;
 		this.tempoEmTerra = (long) Math.random() * 1000;
 		this.situacaoTexto = defineSituacaoTexto();
 	}
@@ -31,13 +40,13 @@ public class Aviao {
 	public Aviao() {
 	}
 
-	public void decolar() {
-		this.aeroporto.realizaDecolagem(this);
+	public void decolar() throws InterruptedException {
+		this.aeroporto.realizaDecolagemNova(this);
 	}
 
 	public void pousar() throws InterruptedException {
-		this.aeroporto.realizaPouso(this);
-		this.setTempoEmTerra((long) (Math.random() * 100000));
+		this.aeroporto.realizaPousoNovo(this);
+		this.setTempoEmTerra((long) (Math.random() * 10000));
 		Thread.sleep(this.getTempoEmTerra());
 		decolar();
 	}
@@ -101,6 +110,14 @@ public class Aviao {
 
 	public void setSituacaoTexto(String situacaoTexto) {
 		this.situacaoTexto = situacaoTexto;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 }
